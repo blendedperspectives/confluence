@@ -1,0 +1,7 @@
+api_protocol = "https"
+enterprise = "default"
+git_port = "8989"
+organization = "blendive-test"
+pipeline = "master"
+server = "automate.example.com"
+user = "patcon"
