@@ -1,0 +1,18 @@
+<%= ERB.new(File.read(File.dirname(__FILE__)+'/../.kitchen.yml')).result(binding) %>
+
+driver:
+  << : *driver
+  name: ec2
+  instance_type: t2.medium
+
+transport:
+  ssh_key: <%= ENV['KITCHEN_EC2_SSH_KEY_PATH'] || '~/.ssh/id_rsa' %>
+
+provisioner:
+  << : *provisioner
+  client_rb:
+    formatters:
+      # Keeps logs concise for parallelism.
+      # Travis CI will also cancel job if logs get over 4MB.
+    - :minimal
+
