@@ -6,9 +6,9 @@
 
 delivery_test_kitchen 'unit_create' do
   driver 'ec2'
+  yaml "#{delivery_workspace_repo}/.delivery/.kitchen.ec2.yml"
   options '--log-level=debug'
   suite 'standalone-postgresql-ubuntu-1404'
-  repo_path "#{delivery_workspace_repo}/.delivery/.kitchen.ec2.yml"
   action :create
 end
 
