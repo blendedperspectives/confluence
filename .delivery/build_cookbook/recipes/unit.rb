@@ -6,10 +6,9 @@
 
 delivery_test_kitchen 'unit_create' do
   driver 'dokken'
-  options '--log-level=debug'
   yaml '.kitchen.docker.yml'
-  suite 'standalone-postgresql'
-  action :create
+  suite 'standalone-postgresql-centos-7'
+  action [:converge, :destroy]
 end
 
 include_recipe 'delivery-truck::unit'
