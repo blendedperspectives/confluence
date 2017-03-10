@@ -3,7 +3,7 @@
 driver:
   << : *driver
   name: ec2
-  size: t2.medium
+  instance_type: t2.medium
 
 transport:
   ssh_key: <%= ENV['KITCHEN_EC2_SSH_KEY_PATH'] || '~/.ssh/id_rsa' %>
