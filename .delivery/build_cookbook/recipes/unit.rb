@@ -8,7 +8,7 @@ delivery_test_kitchen 'unit_create' do
   driver 'dokken'
   options '--log-level=debug'
   yaml '.kitchen.docker.yml'
-  suite 'default'
+  suite 'standalone-postgresql'
   action :create
 end
 
