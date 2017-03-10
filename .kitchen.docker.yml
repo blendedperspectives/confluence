@@ -41,7 +41,7 @@ platforms:
     pid_one_command: /sbin/init
     intermediate_instructions:
       - RUN /usr/bin/apt-get update
-      - RUN /usr/bin/apt-get install openssl apt-transport-https lsb-release procps net-tools sudo -y
+      - RUN /usr/bin/apt-get install openssl apt-transport-https lsb-release procps net-tools sudo locales libc-bin -y
       - RUN /usr/sbin/locale-gen en_utf8
       - RUN /usr/sbin/update-locale LANG=en_utf8
 
