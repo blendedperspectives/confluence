@@ -3,4 +3,12 @@
 # Recipe:: unit
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
+
+delivery_test_kitchen 'unit_create' do
+  driver 'dokken'
+  options '--log-level=debug'
+  suite 'default'
+  action :create
+end
+
 include_recipe 'delivery-truck::unit'

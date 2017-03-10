@@ -5,3 +5,4 @@ license 'all_rights'
 version '0.1.0'
 
 depends 'delivery-truck'
+depends 'docker', '~> 2.0'
