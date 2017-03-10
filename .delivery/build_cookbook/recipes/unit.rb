@@ -4,15 +4,16 @@
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
-# Test-converge on our most common platform
-delivery_test_kitchen 'quality_converge_destroy_ubuntu_1404' do
-  driver 'dokken'
-  # Avoid `--parallel` just in case
-  options '--concurrency=4'
-  yaml '.kitchen.docker.yml'
-  #suite 'ubuntu-1404'
+link "#{delivery_workspace_repo}/.kitchen.local.yml" do
+  to "#{delivery_workspace_repo}/.kitchen.ec2.yml"
+end
+
+delivery_test_kitchen 'unit_create' do
+  driver 'ec2'
+  options '--log-level=debug'
   suite 'standalone-postgresql-ubuntu-1404'
-  action [:converge, :destroy]
+  repo_path delivery_workspace_repo
+  action :create
 end
 
 include_recipe 'delivery-truck::unit'

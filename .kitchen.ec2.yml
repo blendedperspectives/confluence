@@ -1,0 +1,14 @@
+driver:
+  name: ec2
+  size: t2.medium
+
+transport:
+  ssh_key: <%= ENV['KITCHEN_EC2_SSH_KEY_PATH'] || '~/.ssh/id_rsa' %>
+
+provisioner:
+  client_rb:
+    formatters:
+      # Keeps logs concise for parallelism.
+      # Travis CI will also cancel job if logs get over 4MB.
+    - :minimal
+
